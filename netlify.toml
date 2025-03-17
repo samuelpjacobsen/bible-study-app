@@ -1,0 +1,9 @@
+[build]
+  command = "CI= npm run build"
+  publish = "build"
+
+# Configuração para SPA - redireciona todas as requisições para index.html
+[[redirects]]
+  from = "/*"
+  to = "/index.html"
+  status = 200

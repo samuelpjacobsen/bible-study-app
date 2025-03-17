@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>Sistema de Estudo Bíblico</title>
+  <script type="text/javascript">
+    // Redirect to index.html with the path from the URL
+    var pathSegments = window.location.pathname.split('/');
+    var repoName = pathSegments[1];
+    var newUrl = window.location.protocol + '//' + window.location.hostname;
+    
+    if (window.location.port) {
+      newUrl += ':' + window.location.port;
+    }
+    
+    newUrl += '/' + repoName;
+    
+    // Redirect to the homepage and let React Router handle the routing
+    window.location.href = newUrl;
+  </script>
+</head>
+<body>
+  <p>Redirecionando...</p>
+</body>
+</html>

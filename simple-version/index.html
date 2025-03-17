@@ -1,0 +1,386 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sistema de Estudo Bíblico</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+  <style>
+    :root {
+      --primary: #4a6da7;
+      --accent: #c29545;
+      --bg-light: #f8f9fa;
+      --bg-dark: #212529;
+      --text-light: #343a40;
+      --text-dark: #f8f9fa;
+    }
+    
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background-color: var(--bg-light);
+      color: var(--text-light);
+      transition: background-color 0.3s, color 0.3s;
+      line-height: 1.6;
+    }
+    
+    body.dark-mode {
+      background-color: var(--bg-dark);
+      color: var(--text-dark);
+    }
+    
+    .navbar {
+      background-color: white;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    }
+    
+    body.dark-mode .navbar {
+      background-color: #343a40;
+    }
+    
+    .navbar-brand {
+      color: var(--primary);
+      font-weight: 700;
+    }
+    
+    body.dark-mode .navbar-brand,
+    body.dark-mode .nav-link {
+      color: white;
+    }
+    
+    .hero-section {
+      padding: 5rem 0;
+      text-align: center;
+    }
+    
+    .hero-title {
+      color: var(--primary);
+      margin-bottom: 1.5rem;
+    }
+    
+    .verse-box {
+      background-color: white;
+      border-left: 4px solid var(--accent);
+      padding: 1.5rem;
+      margin: 2rem auto;
+      max-width: 800px;
+      border-radius: 8px;
+      box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+    }
+    
+    body.dark-mode .verse-box {
+      background-color: #343a40;
+      border-left: 4px solid var(--accent);
+    }
+    
+    .verse-text {
+      font-style: italic;
+      margin-bottom: 0.5rem;
+    }
+    
+    .verse-reference {
+      text-align: right;
+      font-weight: bold;
+      color: var(--accent);
+    }
+    
+    .topic-card {
+      background-color: white;
+      border-radius: 8px;
+      padding: 2rem;
+      height: 100%;
+      box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+      transition: transform 0.3s;
+    }
+    
+    body.dark-mode .topic-card {
+      background-color: #343a40;
+    }
+    
+    .topic-card:hover {
+      transform: translateY(-10px);
+    }
+    
+    .topic-icon {
+      font-size: 2.5rem;
+      margin-bottom: 1rem;
+    }
+    
+    .topic-title {
+      color: var(--primary);
+      margin-bottom: 1rem;
+    }
+    
+    .theme-toggle {
+      cursor: pointer;
+      padding: 0.5rem;
+      border-radius: 50%;
+      width: 40px;
+      height: 40px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background-color: #f8f9fa;
+    }
+    
+    body.dark-mode .theme-toggle {
+      background-color: #6c757d;
+    }
+    
+    footer {
+      background-color: white;
+      padding: 1.5rem 0;
+      text-align: center;
+      margin-top: 3rem;
+      border-top: 1px solid #dee2e6;
+    }
+    
+    body.dark-mode footer {
+      background-color: #343a40;
+      border-top: 1px solid #495057;
+    }
+
+    #coming-soon {
+      text-align: center;
+      margin-top: 1rem;
+      padding: 0.5rem;
+      background-color: var(--accent);
+      color: white;
+      border-radius: 4px;
+      font-weight: bold;
+    }
+  </style>
+</head>
+<body>
+  <nav class="navbar navbar-expand-lg">
+    <div class="container">
+      <a class="navbar-brand" href="#">Estudo Bíblico</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav me-auto">
+          <li class="nav-item">
+            <a class="nav-link active" href="#" onclick="showHomePage()">Início</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#" onclick="showTopicsPage()">Temas</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#" onclick="showProgressPage()">Progresso</a>
+          </li>
+        </ul>
+        <div class="theme-toggle" onclick="toggleTheme()">
+          <span id="theme-icon">🌙</span>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+  <div class="container mt-4" id="main-content">
+    <!-- Conteúdo será carregado dinamicamente -->
+  </div>
+
+  <footer>
+    <div class="container">
+      <p>© <span id="year"></span> Sistema de Estudo Bíblico - Desenvolvido para a glória de Deus</p>
+    </div>
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+  <script>
+    // Definir o ano atual no rodapé
+    document.getElementById('year').textContent = new Date().getFullYear();
+
+    // Gerenciar tema claro/escuro
+    function toggleTheme() {
+      document.body.classList.toggle('dark-mode');
+      const themeIcon = document.getElementById('theme-icon');
+      themeIcon.textContent = document.body.classList.contains('dark-mode') ? '☀️' : '🌙';
+      
+      // Salvar preferência do usuário
+      localStorage.setItem('darkMode', document.body.classList.contains('dark-mode'));
+    }
+    
+    // Restaurar tema preferido
+    if (localStorage.getItem('darkMode') === 'true') {
+      document.body.classList.add('dark-mode');
+      document.getElementById('theme-icon').textContent = '☀️';
+    }
+    
+    // Dados do aplicativo
+    const verses = [
+      { text: "O Senhor é o meu pastor; de nada terei falta.", reference: "Salmos 23:1" },
+      { text: "Porque Deus tanto amou o mundo que deu o seu Filho Unigênito, para que todo o que nele crer não pereça, mas tenha a vida eterna.", reference: "João 3:16" },
+      { text: "Não fui eu que ordenei a você? Seja forte e corajoso! Não se apavore nem desanime, pois o Senhor, o seu Deus, estará com você por onde você andar.", reference: "Josué 1:9" },
+      { text: "Confie no Senhor de todo o seu coração e não se apoie em seu próprio entendimento; reconheça o Senhor em todos os seus caminhos, e ele endireitará as suas veredas.", reference: "Provérbios 3:5-6" }
+    ];
+    
+    const topics = [
+      { id: 'books', title: 'Livros da Bíblia', description: 'Explore os 66 livros da Bíblia e seu contexto histórico.', icon: '📚' },
+      { id: 'characters', title: 'Personagens Bíblicos', description: 'Conheça as histórias dos principais personagens bíblicos.', icon: '👤' },
+      { id: 'doctrines', title: 'Doutrinas e Ensinamentos', description: 'Estude as principais doutrinas e ensinamentos bíblicos.', icon: '📖' },
+      { id: 'prophecies', title: 'Profecias e Parábolas', description: 'Estude as profecias e parábolas contidas na Bíblia.', icon: '🔮' }
+    ];
+    
+    // Funções para gerenciar as páginas
+    function showHomePage() {
+      const mainContent = document.getElementById('main-content');
+      
+      // Escolher um versículo aleatório
+      const randomVerse = verses[Math.floor(Math.random() * verses.length)];
+      
+      // Construir conteúdo da página inicial
+      let content = `
+        <div class="hero-section">
+          <h1 class="hero-title">Portal do Estudo Bíblico</h1>
+          <p class="lead">Bem-vindo ao seu caminho de descoberta e aprofundamento nas Escrituras</p>
+          
+          <div class="verse-box">
+            <p class="verse-text">"${randomVerse.text}"</p>
+            <p class="verse-reference">${randomVerse.reference}</p>
+          </div>
+        </div>
+        
+        <div class="row g-4">
+      `;
+      
+      // Adicionar cards de tópicos
+      topics.forEach(topic => {
+        content += `
+          <div class="col-md-6 col-lg-3">
+            <div class="topic-card" onclick="showTopicDetail('${topic.id}')">
+              <div class="topic-icon">${topic.icon}</div>
+              <h3 class="topic-title">${topic.title}</h3>
+              <p>${topic.description}</p>
+            </div>
+          </div>
+        `;
+      });
+      
+      content += `</div>`;
+      mainContent.innerHTML = content;
+    }
+    
+    function showTopicsPage() {
+      const mainContent = document.getElementById('main-content');
+      
+      let content = `
+        <h2 class="mb-4">Temas de Estudo</h2>
+        <div class="row g-4">
+      `;
+      
+      topics.forEach(topic => {
+        content += `
+          <div class="col-md-6">
+            <div class="topic-card" onclick="showTopicDetail('${topic.id}')">
+              <div class="topic-icon">${topic.icon}</div>
+              <h3 class="topic-title">${topic.title}</h3>
+              <p>${topic.description}</p>
+            </div>
+          </div>
+        `;
+      });
+      
+      content += `</div>`;
+      mainContent.innerHTML = content;
+    }
+    
+    function showProgressPage() {
+      const mainContent = document.getElementById('main-content');
+      
+      mainContent.innerHTML = `
+        <h2 class="text-center mb-4">Meu Progresso</h2>
+        
+        <div class="card p-4 mb-4">
+          <h3 class="mb-3">Progresso de Estudos</h3>
+          <div class="progress mb-3" style="height: 25px;">
+            <div class="progress-bar bg-warning" role="progressbar" style="width: 25%" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100">25%</div>
+          </div>
+          
+          <div class="row text-center mt-3">
+            <div class="col-md-4">
+              <div class="card mb-3">
+                <div class="card-body">
+                  <h5 class="text-primary display-6">3</h5>
+                  <p>Estudos Completos</p>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-4">
+              <div class="card mb-3">
+                <div class="card-body">
+                  <h5 class="text-primary display-6">12</h5>
+                  <p>Estudos Totais</p>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-4">
+              <div class="card mb-3">
+                <div class="card-body">
+                  <h5 class="text-primary display-6">9</h5>
+                  <p>Estudos Restantes</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        
+        <div id="coming-soon">Versão completa em breve!</div>
+      `;
+    }
+    
+    function showTopicDetail(topicId) {
+      const topic = topics.find(t => t.id === topicId);
+      const mainContent = document.getElementById('main-content');
+      
+      mainContent.innerHTML = `
+        <h2 class="mb-4">${topic.title}</h2>
+        <p class="lead mb-4">${topic.description}</p>
+        
+        <div class="row">
+          <div class="col-md-4 mb-4">
+            <div class="card h-100">
+              <div class="card-body">
+                <h5 class="card-title">Gênesis</h5>
+                <p class="card-text">O livro dos começos, que narra a criação do mundo, a queda do homem e o início da história do povo de Deus.</p>
+              </div>
+              <div class="card-footer">
+                <small class="text-muted">Versículos chave: Gênesis 1:1, Gênesis 3:15</small>
+              </div>
+            </div>
+          </div>
+          
+          <div class="col-md-4 mb-4">
+            <div class="card h-100">
+              <div class="card-body">
+                <h5 class="card-title">Êxodo</h5>
+                <p class="card-text">Narra a libertação do povo de Israel da escravidão no Egito e o estabelecimento da aliança no Monte Sinai.</p>
+              </div>
+              <div class="card-footer">
+                <small class="text-muted">Versículos chave: Êxodo 3:14, Êxodo 20:1-17</small>
+              </div>
+            </div>
+          </div>
+          
+          <div class="col-md-4 mb-4">
+            <div class="card h-100">
+              <div class="card-body">
+                <h5 class="card-title">Salmos</h5>
+                <p class="card-text">Uma coleção de 150 poemas e cânticos que expressam diversas emoções e aspectos da fé e adoração.</p>
+              </div>
+              <div class="card-footer">
+                <small class="text-muted">Versículos chave: Salmos 23:1, Salmos 119:105</small>
+              </div>
+            </div>
+          </div>
+        </div>
+        
+        <div id="coming-soon">Versão completa em breve!</div>
+      `;
+    }
+    
+    // Iniciar com a página inicial
+    showHomePage();
+  </script>
+</body>
+</html>
