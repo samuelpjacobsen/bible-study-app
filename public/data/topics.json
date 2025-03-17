@@ -1,0 +1,124 @@
+{
+  "categories": [
+    {
+      "id": "books",
+      "name": "Livros da Bíblia",
+      "topics": [
+        {
+          "id": "genesis",
+          "title": "Gênesis",
+          "description": "O primeiro livro da Bíblia que narra a criação do mundo e o início da história do povo de Deus.",
+          "icon": "book"
+        },
+        {
+          "id": "exodus",
+          "title": "Êxodo",
+          "description": "Narra a saída do povo de Israel do Egito, liderados por Moisés.",
+          "icon": "book"
+        },
+        {
+          "id": "psalms",
+          "title": "Salmos",
+          "description": "Coletânea de cânticos e poemas de louvor, súplica e agradecimento a Deus.",
+          "icon": "book"
+        },
+        {
+          "id": "john",
+          "title": "João",
+          "description": "Um dos quatro evangelhos que narra a vida, ministério, morte e ressurreição de Jesus Cristo.",
+          "icon": "book"
+        }
+      ]
+    },
+    {
+      "id": "characters",
+      "name": "Personagens Bíblicos",
+      "topics": [
+        {
+          "id": "jesus",
+          "title": "Jesus Cristo",
+          "description": "O filho de Deus, salvador da humanidade e figura central do cristianismo.",
+          "icon": "person"
+        },
+        {
+          "id": "moses",
+          "title": "Moisés",
+          "description": "Líder que conduziu o povo de Israel para fora do Egito e recebeu os Dez Mandamentos.",
+          "icon": "person"
+        },
+        {
+          "id": "david",
+          "title": "Davi",
+          "description": "Rei de Israel, compositor de muitos salmos e antepassado de Jesus.",
+          "icon": "person"
+        },
+        {
+          "id": "paul",
+          "title": "Paulo",
+          "description": "Apóstolo que escreveu grande parte do Novo Testamento e espalhou o evangelho pelo mundo romano.",
+          "icon": "person"
+        }
+      ]
+    },
+    {
+      "id": "doctrines",
+      "name": "Doutrinas e Ensinamentos",
+      "topics": [
+        {
+          "id": "salvation",
+          "title": "Salvação",
+          "description": "O plano de Deus para resgatar a humanidade através de Jesus Cristo.",
+          "icon": "light"
+        },
+        {
+          "id": "holy-spirit",
+          "title": "Espírito Santo",
+          "description": "A terceira pessoa da Trindade que habita nos crentes.",
+          "icon": "fire"
+        },
+        {
+          "id": "prayer",
+          "title": "Oração",
+          "description": "Comunicação com Deus através da oração e seus princípios.",
+          "icon": "hands"
+        },
+        {
+          "id": "faith",
+          "title": "Fé",
+          "description": "O fundamento da vida cristã e sua importância para o crente.",
+          "icon": "heart"
+        }
+      ]
+    },
+    {
+      "id": "prophecies",
+      "name": "Profecias e Parábolas",
+      "topics": [
+        {
+          "id": "second-coming",
+          "title": "Segunda Vinda de Cristo",
+          "description": "Profecias sobre o retorno de Jesus Cristo no fim dos tempos.",
+          "icon": "crown"
+        },
+        {
+          "id": "good-samaritan",
+          "title": "Bom Samaritano",
+          "description": "Parábola de Jesus sobre amor ao próximo e compaixão.",
+          "icon": "heart"
+        },
+        {
+          "id": "prodigal-son",
+          "title": "Filho Pródigo",
+          "description": "Parábola sobre o amor de Deus e o arrependimento.",
+          "icon": "home"
+        },
+        {
+          "id": "revelation",
+          "title": "Apocalipse",
+          "description": "O livro profético que revela os eventos do fim dos tempos.",
+          "icon": "scroll"
+        }
+      ]
+    }
+  ]
+}
