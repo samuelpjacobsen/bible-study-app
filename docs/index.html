@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sistema de Estudo Bíblico</title>
+  <style>
+    :root {
+      --background-light: #f5f5f5;
+      --background-dark: #1a1a1a;
+      --text-light: #333333;
+      --text-dark: #f5f5f5;
+      --primary: #4a6da7;
+      --secondary: #8ba3c7;
+      --accent: #c29545;
+      --gray-100: #f8f9fa;
+      --gray-200: #e9ecef;
+      --gray-300: #dee2e6;
+      --gray-400: #ced4da;
+      --gray-500: #adb5bd;
+      --gray-600: #6c757d;
+      --gray-700: #495057;
+      --gray-800: #343a40;
+      --gray-900: #212529;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background-color: var(--background-light);
+      color: var(--text-light);
+      line-height: 1.6;
+      padding: 20px;
+    }
+
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1rem;
+      background-color: var(--gray-100);
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+      border-radius: 8px;
+      margin-bottom: 2rem;
+    }
+
+    .logo {
+      font-size: 1.5rem;
+      font-weight: bold;
+      color: var(--primary);
+    }
+
+    .welcome-section {
+      text-align: center;
+      padding: 2rem;
+      border-radius: 8px;
+      background-color: var(--gray-100);
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+      margin-bottom: 2rem;
+    }
+
+    h1 {
+      margin-bottom: 1rem;
+      color: var(--primary);
+    }
+
+    p {
+      margin-bottom: 1rem;
+    }
+
+    .verse-box {
+      padding: 1.5rem;
+      margin: 2rem auto;
+      max-width: 80%;
+      border-radius: 8px;
+      border-left: 4px solid var(--accent);
+      background-color: var(--gray-200);
+      text-align: left;
+    }
+
+    .verse-text {
+      font-size: 1.1rem;
+      margin-bottom: 0.5rem;
+      font-style: italic;
+    }
+
+    .verse-reference {
+      font-weight: bold;
+      text-align: right;
+      color: var(--accent);
+    }
+
+    .topics-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+      gap: 2rem;
+    }
+
+    .topic-card {
+      display: flex;
+      flex-direction: column;
+      padding: 2rem;
+      border-radius: 8px;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+      background-color: var(--gray-100);
+      transition: transform 0.3s, box-shadow 0.3s;
+      cursor: pointer;
+    }
+
+    .topic-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 10px 15px rgba(0, 0, 0, 0.1);
+    }
+
+    .topic-icon {
+      font-size: 3rem;
+      margin-bottom: 1rem;
+      text-align: center;
+    }
+
+    .topic-card h2 {
+      margin-bottom: 0.5rem;
+      color: var(--primary);
+    }
+
+    footer {
+      text-align: center;
+      padding: 1.5rem;
+      margin-top: 2rem;
+      background-color: var(--gray-100);
+      border-radius: 8px;
+      color: var(--gray-600);
+      font-size: 0.9rem;
+    }
+
+    .button {
+      display: inline-block;
+      padding: 0.5rem 1rem;
+      margin-top: 1rem;
+      background-color: var(--primary);
+      color: white;
+      border-radius: 4px;
+      text-decoration: none;
+      font-weight: 500;
+      transition: background-color 0.3s;
+    }
+
+    .button:hover {
+      background-color: #3d5a8c;
+    }
+
+    @media (max-width: 768px) {
+      .topics-grid {
+        grid-template-columns: 1fr;
+      }
+      
+      .verse-box {
+        max-width: 100%;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <header>
+      <div class="logo">Estudo Bíblico</div>
+    </header>
+
+    <div class="welcome-section">
+      <h1>Portal do Estudo Bíblico</h1>
+      <p>Bem-vindo ao seu caminho de descoberta e aprofundamento nas Escrituras</p>
+      
+      <div class="verse-box">
+        <p class="verse-text">"Confie no Senhor de todo o seu coração e não se apoie em seu próprio entendimento; reconheça o Senhor em todos os seus caminhos, e ele endireitará as suas veredas."</p>
+        <p class="verse-reference">Provérbios 3:5-6</p>
+      </div>
+      
+      <p>O GitHub Actions está processando o deploy completo do aplicativo React. Por favor, aguarde alguns minutos e atualize a página.</p>
+      <a href="https://github.com/samuelpjacobsen/bible-study-app" class="button">Ver repositório no GitHub</a>
+    </div>
+
+    <div class="topics-grid">
+      <div class="topic-card">
+        <div class="topic-icon">📚</div>
+        <h2>Livros da Bíblia</h2>
+        <p>Explore os 66 livros da Bíblia e seu contexto histórico.</p>
+      </div>
+      
+      <div class="topic-card">
+        <div class="topic-icon">👤</div>
+        <h2>Personagens Bíblicos</h2>
+        <p>Conheça as histórias dos principais personagens bíblicos.</p>
+      </div>
+      
+      <div class="topic-card">
+        <div class="topic-icon">📖</div>
+        <h2>Doutrinas e Ensinamentos</h2>
+        <p>Estude as principais doutrinas e ensinamentos bíblicos.</p>
+      </div>
+      
+      <div class="topic-card">
+        <div class="topic-icon">🔮</div>
+        <h2>Profecias e Parábolas</h2>
+        <p>Estude as profecias e parábolas contidas na Bíblia.</p>
+      </div>
+    </div>
+    
+    <footer>
+      <p>&copy; 2025 Sistema de Estudo Bíblico - Desenvolvido para a glória de Deus</p>
+    </footer>
+  </div>
+</body>
+</html>
