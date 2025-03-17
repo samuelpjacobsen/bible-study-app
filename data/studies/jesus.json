@@ -1,0 +1,35 @@
+{
+  "id": "jesus",
+  "title": "Jesus Cristo",
+  "content": "Jesus Cristo é a figura central do cristianismo e é considerado pelos cristãos como o Filho de Deus e o Messias prometido nas profecias do Antigo Testamento. Nascido em Belém, Jesus viveu a maior parte de sua vida em Nazaré, na Galileia, onde trabalhou como carpinteiro antes de iniciar seu ministério público por volta dos 30 anos de idade.\n\nDurante seu ministério, que durou aproximadamente três anos, Jesus ensinou sobre o Reino de Deus, realizou milagres como curas de enfermos, ressuscitou mortos, multiplicou pães e peixes, e demonstrou autoridade sobre a natureza. Seus ensinamentos foram documentados nos quatro Evangelhos: Mateus, Marcos, Lucas e João.\n\nJesus foi crucificado em Jerusalém durante o período da Páscoa judaica, sob o governo do imperador romano Tibério. De acordo com a fé cristã, ressuscitou ao terceiro dia após sua morte, apareceu a seus discípulos e depois ascendeu aos céus.\n\nO cristianismo ensina que, através de sua morte e ressurreição, Jesus ofereceu salvação e vida eterna a todos que nele creem. Ele é visto como o cumprimento das profecias messiânicas do Antigo Testamento e é adorado como Deus encarnado.",
+  "verses": [
+    {
+      "reference": "João 3:16",
+      "text": "Porque Deus tanto amou o mundo que deu o seu Filho Unigênito, para que todo o que nele crer não pereça, mas tenha a vida eterna."
+    },
+    {
+      "reference": "Mateus 1:21",
+      "text": "Ela dará à luz um filho, e você deverá dar-lhe o nome de Jesus, porque ele salvará o seu povo dos seus pecados."
+    },
+    {
+      "reference": "João 14:6",
+      "text": "Respondeu Jesus: Eu sou o caminho, a verdade e a vida. Ninguém vem ao Pai senão por mim."
+    },
+    {
+      "reference": "Filipenses 2:9-11",
+      "text": "Por isso Deus o exaltou à mais alta posição e lhe deu o nome que está acima de todo nome, para que ao nome de Jesus se dobre todo joelho, nos céus, na terra e debaixo da terra, e toda língua confesse que Jesus Cristo é o Senhor, para a glória de Deus Pai."
+    }
+  ],
+  "additionalResources": [
+    {
+      "title": "A vida de Jesus",
+      "url": "https://example.com/vida-jesus",
+      "type": "article"
+    },
+    {
+      "title": "Os ensinamentos de Jesus",
+      "url": "https://example.com/ensinamentos-jesus",
+      "type": "video"
+    }
+  ]
+}
